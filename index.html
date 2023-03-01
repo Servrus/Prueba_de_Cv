@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="Css/estilo2.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+     <script src="JS/script.js"></script>
+
+    <title>Cv</title>
+    
+</head>
+<body>
+  <div class="titulo">
+    <h1>Titulo</h1>
+  </div>
+
+  <div class="row">
+   <div class="col-4 col-s-8">
+    <section class="columnaizquierda">
+       <img id="foto" src="" alt="Foto de perfil" >
+    
+        <h1 id="nombre"></h1>   
+          <h3>Contacto:</h3>
+          <div class="botones">
+            <button class="btn" id="btnTelefono"><i class="fa fa-phone"></i></button>
+            <button class="btn" id="btnMail"><i class="fa fa-envelope"></i></button>
+            <button class="btn" id="btnGithub"><i class="fab fa-github"></i></button>
+          </div>
+           <h3 id="infoContacto"></h3>
+          <script>
+            $(document).ready(function() {
+             $.getJSON("https://randomuser.me/api/?exc=login", function(data) {
+             var user = data.results[0];
+             $("#nombre").text(user.name.first + " " + user.name.last);
+             $("#foto").attr("src", user.picture.large);
+             $("#infoContacto").text("Email: " + user.email);
+
+             $("#btnMail").click(function() {
+					   $("#infoContacto").text("Email: " + user.email);
+				     });
+
+             $("#btnTelefono").click(function() {
+					   $("#infoContacto").text("Telefono: "+ user.phone);
+			    	  });
+
+             $("#btnGithub").click(function() {
+					   $("#infoContacto").text('https://github.com/' + user.name.last);
+				      });
+          
+             });
+            });
+           </script> 
+      <div class="caja">
+       <h2>Idiomas:</h2>
+        <ul>
+         <li>Español</li>
+         <li>Ingles</li>  
+         </ul>
+      </div>
+
+     </section> 
+    </div>
+    <div class="col-6 col-s-7">
+      <article class="columnaderecha" >
+      <div>
+
+        <h2 id="Exp">Experiencias:</h2>
+          <ul>
+
+             <li>....</li>
+             <li>....</li>
+             <li>....</li>
+             <li>....</li>
+        
+          </ul>
+
+       </div>
+
+       <h2>Educacion:</h2>
+       
+       <ul>
+         <li>....</li>
+         <li>....</li>
+        </ul>
+       
+      <h2>Resumen:</h2>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipiscing elit tempor fusce fermentum dictumst praesent dictum leo,
+         sagittis nostra etiam dapibus accumsan blandit eu fames volutpat hac feugiat condimentum ad. Nascetur senectus 
+         laoreet sollicitudin nunc imperdiet duis scelerisque, purus eu risus lacinia lacus porttitor nec, posuere penatibus 
+         eleifend enim tristique velit. Feugiat gravida venenatis volutpat nec primis cras metus luctus dictumst diam magna ac, massa 
+         imperdiet inceptos enim suscipit ornare ultrices habitasse est nisl eget, facilisis ullamcorper nostra a egestas per class auctor lacus duis odio.
+         Varius vulputate ridiculus consequat vivamus cras accumsan ultricies potenti, parturient aenean mus ullamcorper dictum libero pulvinar,
+         posuere arcu integer feugiat fusce litora urna.
+       </p>
+    
+       </article>
+     </div>
+    </div>
+
+
+    <footer class="cierre">
+      <p>Lorem ipsum dolor sit amet consectetur adipiscing elit tempor fusce fermentum dictumst praesent dictum leo,
+        sagittis nostra etiam dapibus accumsan blandit eu fames volutpat hac feugiat condimentum ad</p>
+      </footer>
+     
+</body>
+</html>
